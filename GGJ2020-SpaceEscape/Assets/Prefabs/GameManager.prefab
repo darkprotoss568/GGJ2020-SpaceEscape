@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2102175463312766191
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2102175463312766226}
+  - component: {fileID: 2102175463312766188}
+  - component: {fileID: 2102175463312766189}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2102175463312766226
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2102175463312766191}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 439.97775, y: 12.410246, z: -56.73158}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2102175463312766188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2102175463312766191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dda820a98873021419ab297e0efb6d1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noises:
+  - {fileID: 8300000, guid: 39432a085022c5f4882a82ee71ab94f8, type: 3}
+  - {fileID: 8300000, guid: 2990dc52afc4d534e933ef306f1ec436, type: 3}
+  - {fileID: 8300000, guid: bd104342d412a034a845e1e372164d31, type: 3}
+  - {fileID: 8300000, guid: 2ca90f412cb8a094c86ff9c9a5995c1b, type: 3}
+  - {fileID: 8300000, guid: d029a972c62968c4fba560a2f025cb4f, type: 3}
+  objectPrefabs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  mainTrackPlayer: {fileID: 0}
+  noisePlayer: {fileID: 0}
+  currentTrack: {fileID: 8300000, guid: 203bc77ebebf5d14db66fdfed08cac56, type: 3}
+--- !u!114 &2102175463312766189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2102175463312766191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f685f107727c5e44e9651dcb35013a72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  answerFrameArea: {fileID: 0}
+  repairObjsFrameArea: {fileID: 0}
+  levels:
+  - soundTrack: {fileID: 8300000, guid: 68923bdbba0d74847bed58ce51af41ad, type: 3}
+    levelLayout: {fileID: 4404530134898980893, guid: 0239c5d45a879e44ea2de3ab5d77a6d9,
+      type: 3}
+    correctAnswers: 1
+    allAnswers: 2
+  - soundTrack: {fileID: 8300000, guid: 203bc77ebebf5d14db66fdfed08cac56, type: 3}
+    levelLayout: {fileID: 2409997801525913680, guid: b4bfbb51d0845c84a88a2fe9f6039152,
+      type: 3}
+    correctAnswers: 2
+    allAnswers: 3
+  - soundTrack: {fileID: 8300000, guid: 203bc77ebebf5d14db66fdfed08cac56, type: 3}
+    levelLayout: {fileID: 0}
+    correctAnswers: 2
+    allAnswers: 5
