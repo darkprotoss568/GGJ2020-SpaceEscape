@@ -71,7 +71,7 @@ public class MusicGameplayManager : MonoBehaviour
 			{
 				levelResult = false;
 				
-				// LoadNextLevel
+				GameManager.Instance.LoadNewLevel();
 			}
 		}
     }
@@ -87,17 +87,19 @@ public class MusicGameplayManager : MonoBehaviour
             currentAnswerSet.Add(answer);
 			testList.Remove(answer);
         }
-
-        while (currentAnswerSet.Count < answers)
+		
+		List<AudioClip> result = new List<AudioClip>(currentAnswerSet);
+		
+        while (result.Count < answers)
         {
             AudioClip answer = testList[UnityEngine.Random.Range(0, testList.Count)];
-            currentAnswerSet.Add(answer);
+            result.Add(answer);
             testList.Remove(answer);
         }
 		
-        for (var i = currentAnswerSet.Count; i > 0; i--)
+        for (var i = result.Count; i > 0; i--)
         {
-            Swap(currentAnswerSet, 0, UnityEngine.Random.Range(0, i));
+            Swap(result, 0, UnityEngine.Random.Range(0, i));
         }
 		
 		for (int i = 0; i < currentAnswerSet.Count; i++)
@@ -107,7 +109,7 @@ public class MusicGameplayManager : MonoBehaviour
 		
 		currentAnswerTimeSet.Sort(SortByFloatAscending);
 		
-        return currentAnswerSet;
+        return result;
     }
 	
 	public int SortByFloatAscending(float a, float b)
@@ -135,6 +137,7 @@ public class MusicGameplayManager : MonoBehaviour
 		StartPlayingTrack();
 		
 		levelResult = result;
+		Debug.Log("Level Result = "  + levelResult);
 	}
 	
 	public void StartPlayingTrack()
