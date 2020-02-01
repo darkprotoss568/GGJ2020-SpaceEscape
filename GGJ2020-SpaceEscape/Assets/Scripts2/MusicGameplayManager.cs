@@ -172,5 +172,11 @@ public class MusicGameplayManager : MonoBehaviour
 		list[i] = list[j];
 		list[j] = temp;
 		
-	}	
+	}
+
+    public void playTheNoise(AudioClip clip)
+    {
+        noisePlayer.clip = clip;
+        noisePlayer.Play();
+    }
 }
