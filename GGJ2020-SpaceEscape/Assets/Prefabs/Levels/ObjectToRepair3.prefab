@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2409997801525913683}
   - component: {fileID: 2409997801525913682}
   m_Layer: 5
-  m_Name: ObjectToRepair2
+  m_Name: ObjectToRepair3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -167,7 +167,7 @@ PrefabInstance:
     - target: {fileID: 2055056758636935436, guid: c1024d0eea3a9594db36d77d1914eb96,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 18
+      value: -37
       objectReference: {fileID: 0}
     - target: {fileID: 2055056758636935436, guid: c1024d0eea3a9594db36d77d1914eb96,
         type: 3}
@@ -310,7 +310,7 @@ PrefabInstance:
     - target: {fileID: 2055056758636935436, guid: c1024d0eea3a9594db36d77d1914eb96,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -5
+      value: 77
       objectReference: {fileID: 0}
     - target: {fileID: 2055056758636935436, guid: c1024d0eea3a9594db36d77d1914eb96,
         type: 3}
