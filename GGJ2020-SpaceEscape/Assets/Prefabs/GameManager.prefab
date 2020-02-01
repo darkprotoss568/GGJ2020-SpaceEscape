@@ -51,11 +51,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2ca90f412cb8a094c86ff9c9a5995c1b, type: 3}
   - {fileID: 8300000, guid: d029a972c62968c4fba560a2f025cb4f, type: 3}
   objectPrefabs:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 6935325806463213352, guid: e24f3026dc30a9e42ada4977deef5838, type: 3}
+  - {fileID: 6935325806463213352, guid: e24f3026dc30a9e42ada4977deef5838, type: 3}
+  - {fileID: 6935325806463213352, guid: e24f3026dc30a9e42ada4977deef5838, type: 3}
+  - {fileID: 6935325806463213352, guid: e24f3026dc30a9e42ada4977deef5838, type: 3}
+  - {fileID: 6935325806463213352, guid: e24f3026dc30a9e42ada4977deef5838, type: 3}
   mainTrackPlayer: {fileID: 0}
   noisePlayer: {fileID: 0}
   currentTrack: {fileID: 8300000, guid: 203bc77ebebf5d14db66fdfed08cac56, type: 3}
@@ -85,6 +85,21 @@ MonoBehaviour:
     correctAnswers: 2
     allAnswers: 3
   - soundTrack: {fileID: 8300000, guid: 203bc77ebebf5d14db66fdfed08cac56, type: 3}
-    levelLayout: {fileID: 0}
+    levelLayout: {fileID: 2409997801525913680, guid: 1947a427ac0090549ba90507223e963b,
+      type: 3}
     correctAnswers: 2
-    allAnswers: 5
+    allAnswers: 6
+  - soundTrack: {fileID: 8300000, guid: 203bc77ebebf5d14db66fdfed08cac56, type: 3}
+    levelLayout: {fileID: 2409997801525913680, guid: 38d3096ba2ea2494cac6ab334b13d5b2,
+      type: 3}
+    correctAnswers: 3
+    allAnswers: 7
+  - soundTrack: {fileID: 8300000, guid: 203bc77ebebf5d14db66fdfed08cac56, type: 3}
+    levelLayout: {fileID: 2409997801525913680, guid: 74527d1a04c67a0489ffc11000d50b62,
+      type: 3}
+    correctAnswers: 3
+    allAnswers: 7
+  timerText: {fileID: 0}
+  timer: 60
+  gameOverScreen: {fileID: 0}
+  levelText: {fileID: 0}

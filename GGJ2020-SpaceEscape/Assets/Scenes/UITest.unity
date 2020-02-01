@@ -1599,41 +1599,6 @@ PrefabInstance:
       propertyPath: noisePlayer
       value: 
       objectReference: {fileID: 1314096097}
-    - target: {fileID: 2102175463312766188, guid: 28c788ffd11290c4eafe3d91ae2947e1,
-        type: 3}
-      propertyPath: objectPrefabs.Array.data[0]
-      value: 
-      objectReference: {fileID: 6935325806463213352, guid: e24f3026dc30a9e42ada4977deef5838,
-        type: 3}
-    - target: {fileID: 2102175463312766188, guid: 28c788ffd11290c4eafe3d91ae2947e1,
-        type: 3}
-      propertyPath: objectPrefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 6935325806463213352, guid: e24f3026dc30a9e42ada4977deef5838,
-        type: 3}
-    - target: {fileID: 2102175463312766188, guid: 28c788ffd11290c4eafe3d91ae2947e1,
-        type: 3}
-      propertyPath: objectPrefabs.Array.data[2]
-      value: 
-      objectReference: {fileID: 6935325806463213352, guid: e24f3026dc30a9e42ada4977deef5838,
-        type: 3}
-    - target: {fileID: 2102175463312766188, guid: 28c788ffd11290c4eafe3d91ae2947e1,
-        type: 3}
-      propertyPath: objectPrefabs.Array.data[3]
-      value: 
-      objectReference: {fileID: 6935325806463213352, guid: e24f3026dc30a9e42ada4977deef5838,
-        type: 3}
-    - target: {fileID: 2102175463312766188, guid: 28c788ffd11290c4eafe3d91ae2947e1,
-        type: 3}
-      propertyPath: objectPrefabs.Array.data[4]
-      value: 
-      objectReference: {fileID: 6935325806463213352, guid: e24f3026dc30a9e42ada4977deef5838,
-        type: 3}
-    - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
-        type: 3}
-      propertyPath: levels.Array.size
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
         type: 3}
       propertyPath: answerFrameArea
@@ -1651,67 +1616,9 @@ PrefabInstance:
       objectReference: {fileID: 417166929}
     - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
         type: 3}
-      propertyPath: timer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
-        type: 3}
       propertyPath: gameOverScreen
       value: 
       objectReference: {fileID: 127109042}
-    - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
-        type: 3}
-      propertyPath: levels.Array.data[2].allAnswers
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
-        type: 3}
-      propertyPath: levels.Array.data[3].soundTrack
-      value: 
-      objectReference: {fileID: 8300000, guid: 203bc77ebebf5d14db66fdfed08cac56, type: 3}
-    - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
-        type: 3}
-      propertyPath: levels.Array.data[3].correctAnswers
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
-        type: 3}
-      propertyPath: levels.Array.data[3].allAnswers
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
-        type: 3}
-      propertyPath: levels.Array.data[2].levelLayout
-      value: 
-      objectReference: {fileID: 2409997801525913680, guid: 1947a427ac0090549ba90507223e963b,
-        type: 3}
-    - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
-        type: 3}
-      propertyPath: levels.Array.data[3].levelLayout
-      value: 
-      objectReference: {fileID: 2409997801525913680, guid: 38d3096ba2ea2494cac6ab334b13d5b2,
-        type: 3}
-    - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
-        type: 3}
-      propertyPath: levels.Array.data[4].soundTrack
-      value: 
-      objectReference: {fileID: 8300000, guid: 203bc77ebebf5d14db66fdfed08cac56, type: 3}
-    - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
-        type: 3}
-      propertyPath: levels.Array.data[4].levelLayout
-      value: 
-      objectReference: {fileID: 2409997801525913680, guid: 74527d1a04c67a0489ffc11000d50b62,
-        type: 3}
-    - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
-        type: 3}
-      propertyPath: levels.Array.data[4].correctAnswers
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
-        type: 3}
-      propertyPath: levels.Array.data[4].allAnswers
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
         type: 3}
       propertyPath: levelText
