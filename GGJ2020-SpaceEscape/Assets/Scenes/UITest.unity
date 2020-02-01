@@ -282,7 +282,7 @@ RectTransform:
   - {fileID: 1435789948}
   - {fileID: 726840377}
   m_Father: {fileID: 786207807}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -905,8 +905,8 @@ RectTransform:
   - {fileID: 65311862}
   - {fileID: 1662032444}
   - {fileID: 417166928}
-  - {fileID: 127109043}
   - {fileID: 1644027974}
+  - {fileID: 127109043}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1330,12 +1330,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 786207807}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -513, y: 281}
-  m_SizeDelta: {x: 135.63, y: 100}
+  m_AnchoredPosition: {x: -424.1, y: 281}
+  m_SizeDelta: {x: 313.5, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1644027975
 MonoBehaviour:
@@ -1689,6 +1689,21 @@ PrefabInstance:
       propertyPath: levelText
       value: 
       objectReference: {fileID: 1644027975}
+    - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
+        type: 3}
+      propertyPath: timer
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
+        type: 3}
+      propertyPath: bonusTimeOnCorrectAnswer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
+        type: 3}
+      propertyPath: penaltyTimeOnWrongAnswer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2102175463312766191, guid: 28c788ffd11290c4eafe3d91ae2947e1,
         type: 3}
       propertyPath: m_Name

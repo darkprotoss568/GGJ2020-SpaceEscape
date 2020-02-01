@@ -47,7 +47,10 @@ public class MusicGameplayManager : MonoBehaviour
 						
 						Debug.Log("Played" + currentAnswerSet[currNoiseIndex]);
 						noisePlayer.PlayOneShot(currentAnswerSet[currNoiseIndex]);
-						
+                        DistortMainTrack();
+                        CancelInvoke("RestoreMainTrack");
+                        Invoke("RestoreMainTrack", currentAnswerSet[currNoiseIndex].length);
+
 						if (answerCheckMode)
 						{
 							if (!answerResults[currNoiseIndex])
@@ -65,6 +68,10 @@ public class MusicGameplayManager : MonoBehaviour
 			}	
 		} else
 		{
+            if (answerCheckMode)
+            {
+                GameManager.Instance.ModifyTimer(levelResult);
+            }
 			answerCheckMode = false;
 			currNoiseIndex = 0;
 			if (levelResult)
@@ -84,6 +91,41 @@ public class MusicGameplayManager : MonoBehaviour
     public void StopMusicPlay()
     {
         mainTrackPlayer.Stop();
+    }
+
+    public void DistortMainTrack()
+    {
+        float distortion = UnityEngine.Random.Range(0.9f, 1.1f);
+        StopCoroutine("ModifyMainTrackPitch");
+        StartCoroutine("ModifyMainTrackPitch", distortion);
+    }
+    IEnumerator ModifyMainTrackPitch(float target)
+    {
+        float rate = target - mainTrackPlayer.pitch;
+        float origPitch = mainTrackPlayer.pitch;
+
+        while (mainTrackPlayer.pitch != target)
+        {
+            mainTrackPlayer.pitch += rate * Time.deltaTime;
+            float min = target;
+            float max = target;
+            if (rate > 0)
+            {
+                min = origPitch;
+            }
+            else
+            {
+                max = origPitch;
+            }
+            mainTrackPlayer.pitch = Mathf.Clamp(mainTrackPlayer.pitch, min, max);
+            yield return null;
+        }
+
+    }
+    public void RestoreMainTrack()
+    {
+        StopCoroutine("ModifyMainTrackPitch");
+        StartCoroutine("ModifyMainTrackPitch", 1);
     }
     public List<AudioClip> CreateNewAnswerSet(int correctAnswers, int answers)
     {

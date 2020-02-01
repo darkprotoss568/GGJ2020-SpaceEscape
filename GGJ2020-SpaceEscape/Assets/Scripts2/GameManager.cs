@@ -19,6 +19,11 @@ public class GameManager : MonoBehaviour
     private Text timerText;
     [SerializeField]
     private float timer;
+    private bool isInCritical;
+    [SerializeField]
+    private float bonusTimeOnCorrectAnswer;
+    [SerializeField]
+    private float penaltyTimeOnWrongAnswer;
     private float currentTimer;
     [SerializeField]
     private GameObject gameOverScreen;
@@ -35,26 +40,61 @@ public class GameManager : MonoBehaviour
 	
 	void Start()
 	{
+        currentTimer = timer;
 		LoadNewLevel();
 	}
+
     // Update is called once per frame
     void Update()
     {
-        if (!MusicGameplayManager.Instance.IsPlayingMusic() && currentTimer >= 0)
+        if (!MusicGameplayManager.Instance.IsPlayingMusic() && currentTimer > 0)
         {
-            currentTimer -= Time.deltaTime;
+            //Debug.Log(currentTimer);
+            currentTimer = Mathf.Clamp(currentTimer - Time.deltaTime, 0, timer);
             timerText.text = System.Math.Round(currentTimer, 2).ToString();
         }
 
-        if (currentTimer <= 0)
+        if (currentTimer <= 10 && currentTimer > 0)
         {
+            if (!isInCritical)
+            {
+                InvokeRepeating("TimerTextFlash", 0f, 0.2f);
+                isInCritical = true;
+            }
+        } else
+        {
+            if (isInCritical)
+            {
+                CancelInvoke("TimerTextFlash");
+                isInCritical = false;
+            }
+        }
+
+        if (currentTimer == 0)
+        {
+            timerText.color = Color.red;
             if (!gameOverScreen.activeInHierarchy)
             {
                 gameOverScreen.SetActive(true);
             }
         }
+
     }
 
+    private void TimerTextFlash()
+    {
+        Color c = timerText.color;
+        if (c == Color.white)
+        {
+            c = Color.red;
+        }
+        else if (c == Color.red)
+        {
+            c = Color.white;
+        }
+
+        timerText.color = c;
+    }
 	public void LoadNewLevel()
 	{
 		currentLevel ++;
@@ -81,12 +121,24 @@ public class GameManager : MonoBehaviour
 			repairPartsSpawnPoints.Remove(parentTransform);
 		}
 
-        currentTimer = timer;
-        timerText.text = System.Math.Round(timer, 2).ToString();
+        //currentTimer = timer;
+        //timerText.text = System.Math.Round(timer, 2).ToString();
 
-        levelText.text = (currentLevel + 1).ToString();
+        levelText.text = "Level " + (currentLevel + 1).ToString();
 	}
-	
+
+    public void ModifyTimer(bool correctAnswer)
+    {
+        if (correctAnswer)
+        {
+            currentTimer += bonusTimeOnCorrectAnswer;
+        }
+        else
+        {
+            currentTimer -= penaltyTimeOnWrongAnswer;
+        }
+    }
+
 	public void CheckAnswers()
 	{
 		List<AudioClip> answers = new List<AudioClip>();
