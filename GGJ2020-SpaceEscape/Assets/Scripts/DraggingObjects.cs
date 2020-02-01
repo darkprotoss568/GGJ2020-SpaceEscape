@@ -10,6 +10,7 @@ public class DraggingObjects : MonoBehaviour
     public void setDragging( bool drag)
     {
         isDragging = drag;
+        Debug.Log("isDragging: " + drag);
     }
 
     public bool getIsDragging()

@@ -19,6 +19,7 @@ public class Frames : MonoBehaviour
     {
        
         isObjectInFrame = frameBool;
+        //Debug.Log(frameBool);
     }
 
     public bool getIsObjectInFrame()
@@ -29,5 +30,27 @@ public class Frames : MonoBehaviour
     public Vector2 getPosition()
     {
         return startingPosition;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        
+        if (!isObjectInFrame)
+        {
+            Debug.Log("out");
+
+        }
+        //isObjectInFrame = false;
+
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!isObjectInFrame)
+        {
+            Debug.Log("in");
+
+        }
+
     }
 }
