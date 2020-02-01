@@ -56,6 +56,7 @@ public class ItemDrop : MonoBehaviour, IDropHandler
         if (collision.gameObject == objectDropped)
         {
             ImEmpty = true;
+            gameObject.GetComponent<RepairSlots>().CurrentAnswer = null;
         }
     }
 

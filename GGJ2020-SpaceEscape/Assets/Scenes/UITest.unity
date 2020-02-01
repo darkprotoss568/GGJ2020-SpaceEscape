@@ -1596,6 +1596,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2102175463312766188, guid: 28c788ffd11290c4eafe3d91ae2947e1,
         type: 3}
+      propertyPath: noises.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2102175463312766188, guid: 28c788ffd11290c4eafe3d91ae2947e1,
+        type: 3}
       propertyPath: mainTrackPlayer
       value: 
       objectReference: {fileID: 1915765096}
@@ -1664,6 +1669,56 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6935325806463213352, guid: 7889691f6082a9c4fa580220d4ab614f,
         type: 3}
+    - target: {fileID: 2102175463312766188, guid: 28c788ffd11290c4eafe3d91ae2947e1,
+        type: 3}
+      propertyPath: noises.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1485c3beeb852324fbc540fe0cf08aea, type: 3}
+    - target: {fileID: 2102175463312766188, guid: 28c788ffd11290c4eafe3d91ae2947e1,
+        type: 3}
+      propertyPath: noises.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: bfde8f8654d2c0c4ca9bb2f801424d0e, type: 3}
+    - target: {fileID: 2102175463312766188, guid: 28c788ffd11290c4eafe3d91ae2947e1,
+        type: 3}
+      propertyPath: noises.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: de297fbc57c3e9e41bdd03bf7355d96b, type: 3}
+    - target: {fileID: 2102175463312766188, guid: 28c788ffd11290c4eafe3d91ae2947e1,
+        type: 3}
+      propertyPath: noises.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: d148d75f1d6c9c74fad3dc1c2057b5c1, type: 3}
+    - target: {fileID: 2102175463312766188, guid: 28c788ffd11290c4eafe3d91ae2947e1,
+        type: 3}
+      propertyPath: noises.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 84b35e6242c3ce54e9245533c6f1092d, type: 3}
+    - target: {fileID: 2102175463312766188, guid: 28c788ffd11290c4eafe3d91ae2947e1,
+        type: 3}
+      propertyPath: noises.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: fa109a8da65e3414e97e57e72c1fc001, type: 3}
+    - target: {fileID: 2102175463312766188, guid: 28c788ffd11290c4eafe3d91ae2947e1,
+        type: 3}
+      propertyPath: noises.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9389ed820291b85458f072ecb04b771a, type: 3}
+    - target: {fileID: 2102175463312766188, guid: 28c788ffd11290c4eafe3d91ae2947e1,
+        type: 3}
+      propertyPath: noises.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: 012939a5b53fcbe4aa7de302b9cb5d4b, type: 3}
+    - target: {fileID: 2102175463312766188, guid: 28c788ffd11290c4eafe3d91ae2947e1,
+        type: 3}
+      propertyPath: noises.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: 14ce8ddbe105a224180a9f1aee2648b0, type: 3}
+    - target: {fileID: 2102175463312766188, guid: 28c788ffd11290c4eafe3d91ae2947e1,
+        type: 3}
+      propertyPath: noises.Array.data[9]
+      value: 
+      objectReference: {fileID: 8300000, guid: 84cc5b60d66e43d4480496d14e0e4649, type: 3}
     - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
         type: 3}
       propertyPath: answerFrameArea
@@ -1704,6 +1759,31 @@ PrefabInstance:
       propertyPath: penaltyTimeOnWrongAnswer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
+        type: 3}
+      propertyPath: levels.Array.data[0].soundTrack
+      value: 
+      objectReference: {fileID: 8300000, guid: 6d6876f35a0ac724a88b3237b3d5f77d, type: 3}
+    - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
+        type: 3}
+      propertyPath: levels.Array.data[1].soundTrack
+      value: 
+      objectReference: {fileID: 8300000, guid: 81965402414ebbc4499d75dc98384745, type: 3}
+    - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
+        type: 3}
+      propertyPath: levels.Array.data[2].soundTrack
+      value: 
+      objectReference: {fileID: 8300000, guid: 0704ee4c22f4c2546ad917d252320456, type: 3}
+    - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
+        type: 3}
+      propertyPath: levels.Array.data[3].soundTrack
+      value: 
+      objectReference: {fileID: 8300000, guid: 86f73a192387e604a99c51b5fe767545, type: 3}
+    - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
+        type: 3}
+      propertyPath: levels.Array.data[4].soundTrack
+      value: 
+      objectReference: {fileID: 8300000, guid: f9e5f0b0ee6d227438c228968af8e5d6, type: 3}
     - target: {fileID: 2102175463312766191, guid: 28c788ffd11290c4eafe3d91ae2947e1,
         type: 3}
       propertyPath: m_Name
