@@ -60,12 +60,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3278334, g: 0.8962264, b: 0.07186722, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: e34554cb491f29e4f95e3d1a6658a0a0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -96,6 +96,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4404530134898980892}
     m_Modifications:
+    - target: {fileID: 2055056758636935432, guid: c1024d0eea3a9594db36d77d1914eb96,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8fa95c4fa26668c4a8e320f0eaff4202,
+        type: 3}
     - target: {fileID: 2055056758636935436, guid: c1024d0eea3a9594db36d77d1914eb96,
         type: 3}
       propertyPath: m_LocalPosition.x
