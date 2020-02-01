@@ -75,7 +75,16 @@ public class MusicGameplayManager : MonoBehaviour
 			}
 		}
     }
-	
+
+    public bool IsPlayingMusic()
+    {
+        return (mainTrackPlayer.isPlaying);
+    }
+
+    public void StopMusicPlay()
+    {
+        mainTrackPlayer.Stop();
+    }
     public List<AudioClip> CreateNewAnswerSet(int correctAnswers, int answers)
     {
         List<AudioClip> testList = new List<AudioClip>(noises);

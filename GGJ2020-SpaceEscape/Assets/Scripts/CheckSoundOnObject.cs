@@ -12,6 +12,7 @@ public class CheckSoundOnObject : MonoBehaviour, IPointerDownHandler
         if (eventData.button == PointerEventData.InputButton.Right)
         {
             MusicGameplayManager.Instance.playTheNoise(GetComponent<RepairObjScript>().AnswerClip);
+            MusicGameplayManager.Instance.StopMusicPlay();
         }
     }
 

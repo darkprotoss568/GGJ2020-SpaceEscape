@@ -47,6 +47,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
        // Debug.Log("OnBeginDragHandler");
         canvasGroup.blocksRaycasts = false;
         rectTransform.SetAsLastSibling();
+        MusicGameplayManager.Instance.StopMusicPlay();
     }
 
     public void OnEndDrag(PointerEventData eventData)
