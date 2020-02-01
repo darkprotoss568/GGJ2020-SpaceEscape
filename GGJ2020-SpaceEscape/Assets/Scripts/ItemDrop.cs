@@ -15,7 +15,7 @@ public class ItemDrop : MonoBehaviour, IDropHandler
         {
             eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
             ImEmpty = false;
-
+			gameObject.GetComponent<RepairSlots>().CurrentAnswer = eventData.pointerDrag.GetComponent<RepairObjScript>().AnswerClip;
             objectDropped = eventData.pointerDrag;
         }
     }

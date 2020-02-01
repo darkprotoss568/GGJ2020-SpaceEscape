@@ -15,15 +15,25 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
-        startingPos = rectTransform.anchoredPosition;
+        ResetStartingPos();
         canvasGroup = GetComponent<CanvasGroup>();
     }
+	
+	void Start()
+	{
+		canvas = GameObject.FindGameObjectsWithTag("Canvas")[0].GetComponent<Canvas>();
+	}
 
     public void OnPointerDown( PointerEventData eventData)
     {
         //Debug.Log("OnPointerDown");
     }
 
+	public void ResetStartingPos()
+	{
+		startingPos = rectTransform.anchoredPosition;
+	}
+	
     public void OnDrag(PointerEventData eventData)
     {
         //Debug.Log("OnDrag");

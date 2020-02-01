@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class RepairSlots : MonoBehaviour
 {
-	[SerializeField]
 	private AudioClip currentAnswer;
     
 	public AudioClip CurrentAnswer

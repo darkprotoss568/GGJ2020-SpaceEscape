@@ -152,6 +152,10 @@ public class MusicGameplayManager : MonoBehaviour
 		currentTrack = newTrack;
 	}
 	
+	public GameObject GetGameObjectByAudio(AudioClip clip)
+	{
+		return dict[clip];
+	}
     public void RandomizeObjectsAndSoundPair()
     {
         

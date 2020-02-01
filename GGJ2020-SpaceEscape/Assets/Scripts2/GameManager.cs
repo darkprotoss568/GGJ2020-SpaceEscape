@@ -32,7 +32,6 @@ public class GameManager : MonoBehaviour
         
     }
 
-	
 	public void LoadNewLevel()
 	{
 		currentLevel ++;
@@ -43,6 +42,23 @@ public class GameManager : MonoBehaviour
 			Destroy(currentLevelLayout.gameObject);
 		currentLevelLayout = Instantiate(level.levelLayout, answerFrameArea).GetComponent<LevelSlotsLayout>();
 		
+		List<Transform> repairPartsSpawnPoints = new List<Transform>(repairObjsFrameArea.GetComponentsInChildren<Transform>());
+		
+		for (int i = 0; i < allAnswers.Count; i ++)
+		{
+			int index = UnityEngine.Random.Range(0, repairPartsSpawnPoints.Count);
+			Debug.Log("Index: " +index);
+			Debug.Log("Name: " + repairPartsSpawnPoints[index].name);
+			Transform parentTransform = repairPartsSpawnPoints[index];
+			GameObject newPart = Instantiate(MusicGameplayManager.Instance.GetGameObjectByAudio(allAnswers[i]), parentTransform);
+			newPart.GetComponent<RepairObjScript>().AnswerClip = allAnswers[i];
+			//newPart.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+			newPart.transform.SetParent(currentLevelLayout.gameObject.transform);
+			newPart.GetComponent<DragDrop>().ResetStartingPos();
+			repairPartsSpawnPoints.Remove(parentTransform);
+		}
+	
+	
 	}
 	
 	public void CheckAnswers()
