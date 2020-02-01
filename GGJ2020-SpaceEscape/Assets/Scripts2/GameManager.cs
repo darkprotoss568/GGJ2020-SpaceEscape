@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
     private float currentTimer;
     [SerializeField]
     private GameObject gameOverScreen;
+    [SerializeField]
+    private Text levelText;
     // Start is called before the first frame update
     void Awake()
     {
@@ -81,6 +83,8 @@ public class GameManager : MonoBehaviour
 
         currentTimer = timer;
         timerText.text = System.Math.Round(timer, 2).ToString();
+
+        levelText.text = (currentLevel + 1).ToString();
 	}
 	
 	public void CheckAnswers()
