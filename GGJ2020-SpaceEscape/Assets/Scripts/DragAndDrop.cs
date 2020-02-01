@@ -13,10 +13,13 @@ public class DragAndDrop : MonoBehaviour
     private bool isOnFrame = false;
     private bool isPositioned = false;
     private GameObject frameObject;
+    float gameTimer;
+    float checkingTime = 1.0f;
 
     private void Start()
     {
         startingPosition = transform.position;
+        gameTimer = 0.0f;
     }
 
     private void OnMouseOver()
@@ -32,6 +35,8 @@ public class DragAndDrop : MonoBehaviour
 
     private void Update()
     {
+        gameTimer -= Time.deltaTime;
+
         if (selected)
         {
             Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -39,8 +44,9 @@ public class DragAndDrop : MonoBehaviour
             GetComponent<SpriteRenderer>().sortingOrder = 500;
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && selected)
         {
+            gameTimer = checkingTime;
             selected = false;
             GetComponent<SpriteRenderer>().sortingOrder = 0;
             draggingManager.GetComponent<DraggingObjects>().setDragging(false);
@@ -52,12 +58,14 @@ public class DragAndDrop : MonoBehaviour
                 {
                     isPositioned = true;
                     transform.position = framePosition;
+                    Debug.Log("Set here");
                     frameObject.GetComponent<Frames>().setObjectInFrame(true);
                 }
                 else{
                     if (!isOnFrame)
                     {
                         transform.position = startingPosition;
+                        Debug.Log("Here2");
                         frameObject.GetComponent<Frames>().setObjectInFrame(false);
 
                     }

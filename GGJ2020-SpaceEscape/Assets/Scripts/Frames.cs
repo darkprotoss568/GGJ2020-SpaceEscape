@@ -17,6 +17,7 @@ public class Frames : MonoBehaviour
 
     public void setObjectInFrame(bool frameBool)
     {
+       
         isObjectInFrame = frameBool;
     }
 
