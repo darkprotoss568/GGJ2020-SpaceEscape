@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Linq;
+using UnityEngine.UI;
 
 public class MusicGameplayManager : MonoBehaviour
 {
@@ -26,7 +27,8 @@ public class MusicGameplayManager : MonoBehaviour
 	private int currNoiseIndex = 0;
 	[SerializeField]
 	private AudioClip currentTrack = null;
-	
+    [SerializeField]
+    private Button playButtonImage;
 	// Start is called before the first frame update
     void Awake()
     {
@@ -44,25 +46,31 @@ public class MusicGameplayManager : MonoBehaviour
 				
 				if (mainTrackPlayer.time >= currentAnswerTimeSet[currNoiseIndex])
 				{
-						
-						Debug.Log("Played" + currentAnswerSet[currNoiseIndex]);
-						noisePlayer.PlayOneShot(currentAnswerSet[currNoiseIndex]);
+                    if (answerCheckMode)
+                    {
+                        if (!answerResults[currNoiseIndex])
+                        {
+                            // If the answer was wrong
+                            Debug.Log("Wrong");
+                            noisePlayer.PlayOneShot(Resources.Load<AudioClip>("Sounds/SFX/Incorrect_2"));
+                            // Penalty
+                        }
+                        else
+                        {
+
+                            // If the answer was correct
+                            noisePlayer.PlayOneShot(Resources.Load<AudioClip>("Sounds/SFX/Correct"));
+                        }
+                    }
+                    else
+                    {
+                        noisePlayer.PlayOneShot(currentAnswerSet[currNoiseIndex]);
                         DistortMainTrack();
                         CancelInvoke("RestoreMainTrack");
                         Invoke("RestoreMainTrack", currentAnswerSet[currNoiseIndex].length);
-
-						if (answerCheckMode)
-						{
-							if (!answerResults[currNoiseIndex])
-							{
-								// If the answer was wrong
-								// Penalty
-							} else
-							{
-								// If the answer was correct
-							}
-						}
-						currNoiseIndex ++;
+                        
+                    }
+					currNoiseIndex ++;
 				}
 
 			}	
@@ -187,18 +195,29 @@ public class MusicGameplayManager : MonoBehaviour
 		}
 		
 		answerCheckMode = true;
-		StartPlayingTrack();
 		
 		levelResult = result;
-		Debug.Log("Level Result = "  + levelResult);
+
+        StartPlayingTrack();
+        Debug.Log("Level Result = "  + levelResult);
 	}
 	
 	public void StartPlayingTrack()
 	{
 		currNoiseIndex = 0;
 		mainTrackPlayer.clip  = currentTrack;
+        if (!levelResult)
+        {
+            DistortMainTrack();
+        }
+        else
+        {
+            RestoreMainTrack();
+        }
+
         if (!answerCheckMode)
         {
+            //answerResults = new List<bool>(currentAnswerSet.Count);
             if (mainTrackPlayer.isPlaying)
                 mainTrackPlayer.Stop();
             else
@@ -208,7 +227,23 @@ public class MusicGameplayManager : MonoBehaviour
         {
             mainTrackPlayer.Play();
         }
-	}
+
+        if (IsPlayingMusic())
+        {
+            playButtonImage.gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/stop");
+            SpriteState newSpriteState = playButtonImage.spriteState;
+            newSpriteState.highlightedSprite = Resources.Load<Sprite>("Sprites/stopHover");
+            playButtonImage.spriteState = newSpriteState;
+        }
+        else
+        {
+            playButtonImage.gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/play");
+            SpriteState newSpriteState = playButtonImage.spriteState;
+            newSpriteState.highlightedSprite = Resources.Load<Sprite>("Sprites/playHover");
+
+            playButtonImage.spriteState = newSpriteState;
+        }
+    }
 	
 	public void SetCurrentSoundTrack(AudioClip newTrack)
 	{

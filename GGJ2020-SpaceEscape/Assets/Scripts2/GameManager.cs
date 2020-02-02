@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Text timerText;
     [SerializeField]
+    private Text timeModText;
+    [SerializeField]
     private float timer;
     private bool isInCritical;
     [SerializeField]
@@ -145,8 +147,6 @@ public class GameManager : MonoBehaviour
 		for (int i = 0; i < allAnswers.Count; i ++)
 		{
 			int index = UnityEngine.Random.Range(0, repairPartsSpawnPoints.Count);
-			Debug.Log("Index: " +index);
-			Debug.Log("Name: " + repairPartsSpawnPoints[index].name);
 			Transform parentTransform = repairPartsSpawnPoints[index];
 			GameObject newPart = Instantiate(MusicGameplayManager.Instance.GetGameObjectByAudio(allAnswers[i]), parentTransform);
 			newPart.GetComponent<RepairObjScript>().AnswerClip = allAnswers[i];
@@ -165,16 +165,29 @@ public class GameManager : MonoBehaviour
 
     public void ModifyTimer(bool correctAnswer)
     {
+        timeModText.gameObject.SetActive(true);
         if (correctAnswer)
         {
             currentTimer += bonusTimeOnCorrectAnswer;
+            timeModText.text = "+" + bonusTimeOnCorrectAnswer.ToString();
+            timeModText.color = Color.green;
         }
         else
         {
             currentTimer -= penaltyTimeOnWrongAnswer;
+            timeModText.text = "-" + penaltyTimeOnWrongAnswer.ToString();
+            timeModText.color = Color.red;
         }
+
+        CancelInvoke("DeactivateTimeModText");
+        Invoke("DeactivateTimeModText", 1f);
     }
 
+    public void DeactivateTimeModText()
+    {
+        timeModText.gameObject.SetActive(false);
+
+    }
 	public void CheckAnswers()
 	{
 		List<AudioClip> answers = new List<AudioClip>();
