@@ -115,6 +115,7 @@ public class GameManager : MonoBehaviour
             if (!gameOverScreen.activeInHierarchy)
             {
                 gameOverScreen.SetActive(true);
+                MusicGameplayManager.Instance.PlayEndGameBGM(false);
             }
         }
 
@@ -140,6 +141,7 @@ public class GameManager : MonoBehaviour
         if (currentLevel >= levels.Length)
         {
             winScreen.SetActive(true);
+            MusicGameplayManager.Instance.PlayEndGameBGM(true);
             return;
         }
 		LevelData level = levels[currentLevel];
