@@ -17,6 +17,7 @@ public class ItemDrop : MonoBehaviour, IDropHandler
             ImEmpty = false;
 			gameObject.GetComponent<RepairSlots>().CurrentAnswer = eventData.pointerDrag.GetComponent<RepairObjScript>().AnswerClip;
             objectDropped = eventData.pointerDrag;
+            GameManager.Instance.SwitchMode(true);
         }
     }
 
@@ -24,7 +25,7 @@ public class ItemDrop : MonoBehaviour, IDropHandler
     {
         return ImEmpty;
     }
-
+    
     void OnTriggerEnter2D(Collider2D collision)
     {
         
@@ -56,6 +57,9 @@ public class ItemDrop : MonoBehaviour, IDropHandler
         if (collision.gameObject == objectDropped)
         {
             ImEmpty = true;
+            gameObject.GetComponent<RepairSlots>().CurrentAnswer = null;
+
+            GameManager.Instance.SwitchMode(false);
         }
     }
 

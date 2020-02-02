@@ -90,6 +90,7 @@ public class MusicGameplayManager : MonoBehaviour
 
     public void StopMusicPlay()
     {
+        levelResult = false;
         mainTrackPlayer.Stop();
     }
 
@@ -127,6 +128,7 @@ public class MusicGameplayManager : MonoBehaviour
         StopCoroutine("ModifyMainTrackPitch");
         StartCoroutine("ModifyMainTrackPitch", 1);
     }
+
     public List<AudioClip> CreateNewAnswerSet(int correctAnswers, int answers)
     {
         List<AudioClip> testList = new List<AudioClip>(noises);
@@ -195,7 +197,17 @@ public class MusicGameplayManager : MonoBehaviour
 	{
 		currNoiseIndex = 0;
 		mainTrackPlayer.clip  = currentTrack;
-		mainTrackPlayer.Play();
+        if (!answerCheckMode)
+        {
+            if (mainTrackPlayer.isPlaying)
+                mainTrackPlayer.Stop();
+            else
+                mainTrackPlayer.Play();
+        }
+        else
+        {
+            mainTrackPlayer.Play();
+        }
 	}
 	
 	public void SetCurrentSoundTrack(AudioClip newTrack)
