@@ -29,6 +29,11 @@ public class GameManager : MonoBehaviour
     private GameObject gameOverScreen;
     [SerializeField]
     private Text levelText;
+    [SerializeField]
+    private GameObject replayButton;
+    [SerializeField]
+    private GameObject checkButton;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -43,6 +48,36 @@ public class GameManager : MonoBehaviour
         currentTimer = timer;
 		LoadNewLevel();
 	}
+
+    public void SwitchMode(bool checkAvailable)
+    {
+        if (checkAvailable)
+        {
+            if (replayButton.activeInHierarchy)
+                replayButton.SetActive(false);
+            if (!checkButton.activeInHierarchy)
+                checkButton.SetActive(true);
+        }
+        else
+        {
+            bool answerInSlot = false;
+            for (int i = 0; i < currentLevelLayout.Slots.Length; i++)
+            {
+                if (currentLevelLayout.Slots[i].CurrentAnswer != null)
+                {
+                    answerInSlot = true;
+                    break;
+                }
+            }
+            if (!answerInSlot)
+            {
+                if (!replayButton.activeInHierarchy)
+                    replayButton.SetActive(true);
+                if (checkButton.activeInHierarchy)
+                    checkButton.SetActive(false);
+            }
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -124,6 +159,7 @@ public class GameManager : MonoBehaviour
         //currentTimer = timer;
         //timerText.text = System.Math.Round(timer, 2).ToString();
 
+        SwitchMode(false);
         levelText.text = "Level " + (currentLevel + 1).ToString();
 	}
 
