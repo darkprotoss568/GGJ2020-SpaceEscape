@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 65311864}
   - component: {fileID: 65311863}
   m_Layer: 5
-  m_Name: Button
+  m_Name: PlayButtton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1390,7 +1390,7 @@ GameObject:
   - component: {fileID: 1662032446}
   - component: {fileID: 1662032445}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: CheckButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1784,6 +1784,16 @@ PrefabInstance:
       propertyPath: levels.Array.data[4].soundTrack
       value: 
       objectReference: {fileID: 8300000, guid: f9e5f0b0ee6d227438c228968af8e5d6, type: 3}
+    - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
+        type: 3}
+      propertyPath: replayButton
+      value: 
+      objectReference: {fileID: 65311861}
+    - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
+        type: 3}
+      propertyPath: checkButton
+      value: 
+      objectReference: {fileID: 1662032443}
     - target: {fileID: 2102175463312766191, guid: 28c788ffd11290c4eafe3d91ae2947e1,
         type: 3}
       propertyPath: m_Name

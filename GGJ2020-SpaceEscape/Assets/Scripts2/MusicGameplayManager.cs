@@ -90,6 +90,7 @@ public class MusicGameplayManager : MonoBehaviour
 
     public void StopMusicPlay()
     {
+        levelResult = false;
         mainTrackPlayer.Stop();
     }
 
@@ -196,7 +197,17 @@ public class MusicGameplayManager : MonoBehaviour
 	{
 		currNoiseIndex = 0;
 		mainTrackPlayer.clip  = currentTrack;
-		mainTrackPlayer.Play();
+        if (!answerCheckMode)
+        {
+            if (mainTrackPlayer.isPlaying)
+                mainTrackPlayer.Stop();
+            else
+                mainTrackPlayer.Play();
+        }
+        else
+        {
+            mainTrackPlayer.Play();
+        }
 	}
 	
 	public void SetCurrentSoundTrack(AudioClip newTrack)
