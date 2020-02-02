@@ -30,12 +30,14 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject gameOverScreen;
     [SerializeField]
+    private GameObject winScreen;
+
+    [SerializeField]
     private Text levelText;
     [SerializeField]
     private GameObject replayButton;
     [SerializeField]
     private GameObject checkButton;
-
     // Start is called before the first frame update
     void Awake()
     {
@@ -113,6 +115,7 @@ public class GameManager : MonoBehaviour
             if (!gameOverScreen.activeInHierarchy)
             {
                 gameOverScreen.SetActive(true);
+                MusicGameplayManager.Instance.PlayEndGameBGM(false);
             }
         }
 
@@ -135,6 +138,12 @@ public class GameManager : MonoBehaviour
 	public void LoadNewLevel()
 	{
 		currentLevel ++;
+        if (currentLevel >= levels.Length)
+        {
+            winScreen.SetActive(true);
+            MusicGameplayManager.Instance.PlayEndGameBGM(true);
+            return;
+        }
 		LevelData level = levels[currentLevel];
 		MusicGameplayManager.Instance.SetCurrentSoundTrack(level.soundTrack);
 		List<AudioClip> allAnswers = MusicGameplayManager.Instance.CreateNewAnswerSet(level.correctAnswers, level.allAnswers);

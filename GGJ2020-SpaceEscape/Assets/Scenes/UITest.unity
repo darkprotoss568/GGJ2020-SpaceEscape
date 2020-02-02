@@ -1649,7 +1649,7 @@ RectTransform:
   m_Children:
   - {fileID: 1435789948}
   m_Father: {fileID: 786207807}
-  m_RootOrder: 10
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2325,6 +2325,11 @@ PrefabInstance:
       propertyPath: timeModText
       value: 
       objectReference: {fileID: 1182929034}
+    - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
+        type: 3}
+      propertyPath: winScreen
+      value: 
+      objectReference: {fileID: 1318581970}
     - target: {fileID: 2102175463312766191, guid: 28c788ffd11290c4eafe3d91ae2947e1,
         type: 3}
       propertyPath: m_Name

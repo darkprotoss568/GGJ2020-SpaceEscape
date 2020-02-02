@@ -25,6 +25,12 @@ public class MusicGameplayManager : MonoBehaviour
 	[SerializeField]
 	private AudioSource noisePlayer;
 	private int currNoiseIndex = 0;
+    [SerializeField]
+    private AudioSource endGameBGMPlayer;
+    [SerializeField]
+    private AudioClip winBGM;
+    [SerializeField]
+    private AudioClip loseBGM;
 	[SerializeField]
 	private AudioClip currentTrack = null;
     [SerializeField]
@@ -51,10 +57,10 @@ public class MusicGameplayManager : MonoBehaviour
                     {
                         if (!answerResults[currNoiseIndex])
                         {
-                            // If the answer was wrong
-                            //Debug.Log("Wrong");
-                            //noisePlayer.PlayOneShot(Resources.Load<AudioClip>("Sounds/SFX/Incorrect_2"));
-                            // Penalty
+                            noisePlayer.PlayOneShot(currentAnswerSet[currNoiseIndex]);
+                            DistortMainTrack();
+                            CancelInvoke("RestoreMainTrack");
+                            Invoke("RestoreMainTrack", currentAnswerSet[currNoiseIndex].length);
                         }
                         else
                         {
@@ -86,7 +92,7 @@ public class MusicGameplayManager : MonoBehaviour
                     {
                         // If the answer was wrong
                         //Debug.Log("Wrong");
-                        noisePlayer.PlayOneShot(Resources.Load<AudioClip>("Sounds/SFX/Incorrect_2"));
+                        noisePlayer.PlayOneShot(Resources.Load<AudioClip>("Sounds/SFX/Incorrect_3"));
                         // Penalty
                     }
                     else
@@ -123,6 +129,7 @@ public class MusicGameplayManager : MonoBehaviour
     public void StopMusicPlay()
     {
         levelResult = false;
+        ChangePlayButtonSpriteState(false);
         mainTrackPlayer.Stop();
     }
 
@@ -277,6 +284,16 @@ public class MusicGameplayManager : MonoBehaviour
 		currentTrack = newTrack;
 	}
 	
+    public void PlayEndGameBGM(bool playerWon)
+    {
+        if (playerWon)
+            endGameBGMPlayer.clip = winBGM;
+        else
+            endGameBGMPlayer.clip = loseBGM;
+
+        endGameBGMPlayer.Play();
+            
+    }
 	public GameObject GetGameObjectByAudio(AudioClip clip)
 	{
 		return dict[clip];
