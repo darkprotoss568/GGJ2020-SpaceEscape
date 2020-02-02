@@ -51,10 +51,10 @@ public class MusicGameplayManager : MonoBehaviour
                     {
                         if (!answerResults[currNoiseIndex])
                         {
-                            // If the answer was wrong
-                            //Debug.Log("Wrong");
-                            //noisePlayer.PlayOneShot(Resources.Load<AudioClip>("Sounds/SFX/Incorrect_2"));
-                            // Penalty
+                            noisePlayer.PlayOneShot(currentAnswerSet[currNoiseIndex]);
+                            DistortMainTrack();
+                            CancelInvoke("RestoreMainTrack");
+                            Invoke("RestoreMainTrack", currentAnswerSet[currNoiseIndex].length);
                         }
                         else
                         {
@@ -86,7 +86,7 @@ public class MusicGameplayManager : MonoBehaviour
                     {
                         // If the answer was wrong
                         //Debug.Log("Wrong");
-                        noisePlayer.PlayOneShot(Resources.Load<AudioClip>("Sounds/SFX/Incorrect_2"));
+                        noisePlayer.PlayOneShot(Resources.Load<AudioClip>("Sounds/SFX/Incorrect_3"));
                         // Penalty
                     }
                     else
@@ -123,6 +123,7 @@ public class MusicGameplayManager : MonoBehaviour
     public void StopMusicPlay()
     {
         levelResult = false;
+        ChangePlayButtonSpriteState(false);
         mainTrackPlayer.Stop();
     }
 
