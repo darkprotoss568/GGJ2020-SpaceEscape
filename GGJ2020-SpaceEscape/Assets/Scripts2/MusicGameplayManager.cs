@@ -29,6 +29,7 @@ public class MusicGameplayManager : MonoBehaviour
 	private AudioClip currentTrack = null;
     [SerializeField]
     private Button playButtonImage;
+    private bool resultSoundPlaying;
 	// Start is called before the first frame update
     void Awake()
     {
@@ -41,26 +42,28 @@ public class MusicGameplayManager : MonoBehaviour
     {
         if (mainTrackPlayer.isPlaying)
 		{
-			if (currNoiseIndex < currentAnswerSet.Count)
-			{
-				
-				if (mainTrackPlayer.time >= currentAnswerTimeSet[currNoiseIndex])
-				{
+            if (currNoiseIndex < currentAnswerSet.Count)
+            {
+
+                if (mainTrackPlayer.time >= currentAnswerTimeSet[currNoiseIndex])
+                {
                     if (answerCheckMode)
                     {
                         if (!answerResults[currNoiseIndex])
                         {
                             // If the answer was wrong
-                            Debug.Log("Wrong");
-                            noisePlayer.PlayOneShot(Resources.Load<AudioClip>("Sounds/SFX/Incorrect_2"));
+                            //Debug.Log("Wrong");
+                            //noisePlayer.PlayOneShot(Resources.Load<AudioClip>("Sounds/SFX/Incorrect_2"));
                             // Penalty
                         }
                         else
                         {
 
                             // If the answer was correct
-                            noisePlayer.PlayOneShot(Resources.Load<AudioClip>("Sounds/SFX/Correct"));
+                            //noisePlayer.PlayOneShot(Resources.Load<AudioClip>("Sounds/SFX/Correct"));
                         }
+
+
                     }
                     else
                     {
@@ -68,19 +71,40 @@ public class MusicGameplayManager : MonoBehaviour
                         DistortMainTrack();
                         CancelInvoke("RestoreMainTrack");
                         Invoke("RestoreMainTrack", currentAnswerSet[currNoiseIndex].length);
-                        
-                    }
-					currNoiseIndex ++;
-				}
 
-			}	
+                    }
+                    currNoiseIndex++;
+                }
+
+            }
+
+            if (mainTrackPlayer.clip.length - mainTrackPlayer.time < 2)
+            {
+                if (answerCheckMode && !resultSoundPlaying)
+                {
+                    if (!levelResult)
+                    {
+                        // If the answer was wrong
+                        //Debug.Log("Wrong");
+                        noisePlayer.PlayOneShot(Resources.Load<AudioClip>("Sounds/SFX/Incorrect_2"));
+                        // Penalty
+                    }
+                    else
+                    {
+                        noisePlayer.PlayOneShot(Resources.Load<AudioClip>("Sounds/SFX/Correct"));
+                    }
+
+                    resultSoundPlaying = true;
+                }
+            }
 		} else
 		{
             if (answerCheckMode)
             {
                 GameManager.Instance.ModifyTimer(levelResult);
             }
-			answerCheckMode = false;
+            resultSoundPlaying = false;
+            answerCheckMode = false;
 			currNoiseIndex = 0;
 			if (levelResult)
 			{
@@ -165,7 +189,7 @@ public class MusicGameplayManager : MonoBehaviour
 		
 		for (int i = 0; i < currentAnswerSet.Count; i++)
 		{
-			currentAnswerTimeSet.Add(UnityEngine.Random.Range(0, currentTrack.length));
+			currentAnswerTimeSet.Add(UnityEngine.Random.Range(0, currentTrack.length - 5));
 		}
 		
 		currentAnswerTimeSet.Sort(SortByFloatAscending);
@@ -228,7 +252,12 @@ public class MusicGameplayManager : MonoBehaviour
             mainTrackPlayer.Play();
         }
 
-        if (IsPlayingMusic())
+        ChangePlayButtonSpriteState(mainTrackPlayer.isPlaying);
+    }
+	
+    public void ChangePlayButtonSpriteState(bool isPlaying)
+    {
+        if (isPlaying)
         {
             playButtonImage.gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/stop");
             SpriteState newSpriteState = playButtonImage.spriteState;
@@ -240,11 +269,9 @@ public class MusicGameplayManager : MonoBehaviour
             playButtonImage.gameObject.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/play");
             SpriteState newSpriteState = playButtonImage.spriteState;
             newSpriteState.highlightedSprite = Resources.Load<Sprite>("Sprites/playHover");
-
             playButtonImage.spriteState = newSpriteState;
         }
     }
-	
 	public void SetCurrentSoundTrack(AudioClip newTrack)
 	{
 		currentTrack = newTrack;

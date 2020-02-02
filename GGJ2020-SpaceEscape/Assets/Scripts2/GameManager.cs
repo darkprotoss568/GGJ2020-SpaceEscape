@@ -142,9 +142,18 @@ public class GameManager : MonoBehaviour
 			Destroy(currentLevelLayout.gameObject);
 		currentLevelLayout = Instantiate(level.levelLayout, answerFrameArea).GetComponent<LevelSlotsLayout>();
 		
-		List<Transform> repairPartsSpawnPoints = new List<Transform>(repairObjsFrameArea.GetComponentsInChildren<Transform>());
-		
-		for (int i = 0; i < allAnswers.Count; i ++)
+		List<Transform> repairPartsSpawnPoints = new List<Transform>(repairObjsFrameArea.gameObject.GetComponentsInChildren<Transform>());
+        //Debug.Log("Count b = " + repairPartsSpawnPoints.Count);
+        for (int i = 0; i < repairPartsSpawnPoints.Count; i++)
+        {
+            if (repairPartsSpawnPoints[i] == repairObjsFrameArea)
+            {
+                repairPartsSpawnPoints.RemoveAt(i);
+                break;
+            }
+        }
+        //Debug.Log("Count a = " + repairPartsSpawnPoints.Count);
+        for (int i = 0; i < allAnswers.Count; i ++)
 		{
 			int index = UnityEngine.Random.Range(0, repairPartsSpawnPoints.Count);
 			Transform parentTransform = repairPartsSpawnPoints[index];
@@ -160,6 +169,7 @@ public class GameManager : MonoBehaviour
         //timerText.text = System.Math.Round(timer, 2).ToString();
 
         SwitchMode(false);
+        MusicGameplayManager.Instance.ChangePlayButtonSpriteState(false);
         levelText.text = "Level " + (currentLevel + 1).ToString();
 	}
 
@@ -169,13 +179,13 @@ public class GameManager : MonoBehaviour
         if (correctAnswer)
         {
             currentTimer += bonusTimeOnCorrectAnswer;
-            timeModText.text = "+" + bonusTimeOnCorrectAnswer.ToString();
+            timeModText.text = "+" + bonusTimeOnCorrectAnswer.ToString() + "s";
             timeModText.color = Color.green;
         }
         else
         {
             currentTimer -= penaltyTimeOnWrongAnswer;
-            timeModText.text = "-" + penaltyTimeOnWrongAnswer.ToString();
+            timeModText.text = "-" + penaltyTimeOnWrongAnswer.ToString() + "s";
             timeModText.color = Color.red;
         }
 
