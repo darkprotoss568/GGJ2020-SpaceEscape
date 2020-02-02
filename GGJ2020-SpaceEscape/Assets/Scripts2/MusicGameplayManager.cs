@@ -25,6 +25,12 @@ public class MusicGameplayManager : MonoBehaviour
 	[SerializeField]
 	private AudioSource noisePlayer;
 	private int currNoiseIndex = 0;
+    [SerializeField]
+    private AudioSource endGameBGMPlayer;
+    [SerializeField]
+    private AudioClip winBGM;
+    [SerializeField]
+    private AudioClip loseBGM;
 	[SerializeField]
 	private AudioClip currentTrack = null;
     [SerializeField]
@@ -278,6 +284,16 @@ public class MusicGameplayManager : MonoBehaviour
 		currentTrack = newTrack;
 	}
 	
+    public void PlayEndGameBGM(bool playerWon)
+    {
+        if (playerWon)
+            endGameBGMPlayer.clip = winBGM;
+        else
+            endGameBGMPlayer.clip = loseBGM;
+
+        endGameBGMPlayer.Play();
+            
+    }
 	public GameObject GetGameObjectByAudio(AudioClip clip)
 	{
 		return dict[clip];
