@@ -18,6 +18,7 @@ public class ItemDrop : MonoBehaviour, IDropHandler
 			gameObject.GetComponent<RepairSlots>().CurrentAnswer = eventData.pointerDrag.GetComponent<RepairObjScript>().AnswerClip;
             objectDropped = eventData.pointerDrag;
             GameManager.Instance.SwitchMode(true);
+            MusicGameplayManager.Instance.PlayRepairObjectInputSound();
         }
     }
 

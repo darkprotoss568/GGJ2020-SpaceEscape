@@ -294,6 +294,11 @@ public class MusicGameplayManager : MonoBehaviour
         endGameBGMPlayer.Play();
             
     }
+
+    public void PlayRepairObjectInputSound()
+    {
+        noisePlayer.PlayOneShot(Resources.Load<AudioClip>("Sounds/SFX/Welder_Repair"));
+    }
 	public GameObject GetGameObjectByAudio(AudioClip clip)
 	{
 		return dict[clip];
