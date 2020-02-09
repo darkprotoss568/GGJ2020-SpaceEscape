@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
 	void Start()
 	{
         currentTimer = timer;
-		LoadNewLevel();
+		LoadNewPuzzle();
 	}
 
     public void SwitchMode(bool checkAvailable)
@@ -135,7 +135,7 @@ public class GameManager : MonoBehaviour
 
         timerText.color = c;
     }
-	public void LoadNewLevel()
+	public void LoadNewPuzzle()
 	{
 		currentLevel ++;
         if (currentLevel >= levels.Length)
@@ -207,6 +207,12 @@ public class GameManager : MonoBehaviour
         timeModText.gameObject.SetActive(false);
 
     }
+
+    public void LoadNewLevel(string name)
+    {
+        SceneManager.LoadScene(name, LoadSceneMode.Single);
+    }
+
 	public void CheckAnswers()
 	{
 		List<AudioClip> answers = new List<AudioClip>();

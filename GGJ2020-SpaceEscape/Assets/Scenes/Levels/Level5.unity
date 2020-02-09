@@ -2381,7 +2381,7 @@ PrefabInstance:
         type: 3}
       propertyPath: winBGM
       value: 
-      objectReference: {fileID: 8300000, guid: 9946aeed1a812f14f92e4e88669e10e6, type: 3}
+      objectReference: {fileID: 8300000, guid: 80069918000bef743ad1dd2509353149, type: 3}
     - target: {fileID: 2102175463312766188, guid: 28c788ffd11290c4eafe3d91ae2947e1,
         type: 3}
       propertyPath: loseBGM
@@ -2420,7 +2420,7 @@ PrefabInstance:
     - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
         type: 3}
       propertyPath: timer
-      value: 120
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
         type: 3}
@@ -2436,27 +2436,27 @@ PrefabInstance:
         type: 3}
       propertyPath: levels.Array.data[0].soundTrack
       value: 
-      objectReference: {fileID: 8300000, guid: 6d6876f35a0ac724a88b3237b3d5f77d, type: 3}
+      objectReference: {fileID: 8300000, guid: d03f269f1a5534e429a91c94a1035f01, type: 3}
     - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
         type: 3}
       propertyPath: levels.Array.data[1].soundTrack
       value: 
-      objectReference: {fileID: 8300000, guid: 81965402414ebbc4499d75dc98384745, type: 3}
+      objectReference: {fileID: 8300000, guid: 1e5500f6b59fbde46a40efd3bfb92c84, type: 3}
     - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
         type: 3}
       propertyPath: levels.Array.data[2].soundTrack
       value: 
-      objectReference: {fileID: 8300000, guid: 0704ee4c22f4c2546ad917d252320456, type: 3}
+      objectReference: {fileID: 8300000, guid: fd24d82c172a8ff4abd99a372ed0a090, type: 3}
     - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
         type: 3}
       propertyPath: levels.Array.data[3].soundTrack
       value: 
-      objectReference: {fileID: 8300000, guid: 86f73a192387e604a99c51b5fe767545, type: 3}
+      objectReference: {fileID: 8300000, guid: f9e5f0b0ee6d227438c228968af8e5d6, type: 3}
     - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
         type: 3}
       propertyPath: levels.Array.data[4].soundTrack
       value: 
-      objectReference: {fileID: 8300000, guid: f9e5f0b0ee6d227438c228968af8e5d6, type: 3}
+      objectReference: {fileID: 8300000, guid: 3402c282026d85f4d83f7f269d56969e, type: 3}
     - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
         type: 3}
       propertyPath: replayButton

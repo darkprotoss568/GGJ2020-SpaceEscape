@@ -116,7 +116,7 @@ public class MusicGameplayManager : MonoBehaviour
 			{
 				levelResult = false;
 				
-				GameManager.Instance.LoadNewLevel();
+				GameManager.Instance.LoadNewPuzzle();
 			}
 		}
     }
@@ -303,6 +303,7 @@ public class MusicGameplayManager : MonoBehaviour
 	{
 		return dict[clip];
 	}
+
     public void RandomizeObjectsAndSoundPair()
     {
         
