@@ -39,6 +39,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject checkButton;
     // Start is called before the first frame update
+    [SerializeField]
+    private MouseHoverPrompt rightClickPrompt;
+
     void Awake()
     {
         if (GameManager.Instance != null)
@@ -86,6 +89,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (!MusicGameplayManager.Instance.IsPlayingMusic() && currentTimer > 0)
         {
             //Debug.Log(currentTimer);
@@ -119,6 +123,12 @@ public class GameManager : MonoBehaviour
             }
         }
 
+    }
+
+
+    public void SetMouseHoverPromptActive(bool value)
+    {
+        rightClickPrompt.SetActiveState(value);
     }
 
     private void TimerTextFlash()
