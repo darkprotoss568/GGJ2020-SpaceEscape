@@ -24,14 +24,11 @@ public class RepairObjScript : MonoBehaviour, IPointerEnterHandler, IPointerExit
         
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Here2");
         GameManager.Instance.SetMouseHoverPromptActive(true);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-
-        Debug.Log("Here1");
         GameManager.Instance.SetMouseHoverPromptActive(false);
     }
     

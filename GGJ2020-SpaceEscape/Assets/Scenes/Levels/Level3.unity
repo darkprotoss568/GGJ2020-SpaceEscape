@@ -2555,7 +2555,7 @@ PrefabInstance:
     - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
         type: 3}
       propertyPath: timer
-      value: 100
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
         type: 3}
@@ -2642,6 +2642,24 @@ PrefabInstance:
       propertyPath: levels.Array.data[2].allAnswers
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
+        type: 3}
+      propertyPath: levels.Array.data[0].puzzleLayout
+      value: 
+      objectReference: {fileID: 2409997801525913680, guid: f04c96a06f2c10447913ac327e3a7c9d,
+        type: 3}
+    - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
+        type: 3}
+      propertyPath: levels.Array.data[1].puzzleLayout
+      value: 
+      objectReference: {fileID: 2409997801525913680, guid: d46ff5f42216ac941bd61eed0b37a4fd,
+        type: 3}
+    - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
+        type: 3}
+      propertyPath: levels.Array.data[2].puzzleLayout
+      value: 
+      objectReference: {fileID: 2409997801525913680, guid: e47a0486987e05a44b4e3aa280918526,
+        type: 3}
     - target: {fileID: 2102175463312766191, guid: 28c788ffd11290c4eafe3d91ae2947e1,
         type: 3}
       propertyPath: m_Name

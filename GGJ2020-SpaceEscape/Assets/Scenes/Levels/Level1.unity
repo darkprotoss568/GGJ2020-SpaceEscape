@@ -1160,7 +1160,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -272, y: 99}
+  m_AnchoredPosition: {x: -272, y: 71}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &750328107
@@ -1885,8 +1885,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -424.1, y: 281}
-  m_SizeDelta: {x: 313.5, y: 100}
+  m_AnchoredPosition: {x: -304.4, y: 281}
+  m_SizeDelta: {x: 553, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1644027975
 MonoBehaviour:
@@ -2122,7 +2122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2546,7 +2546,7 @@ PrefabInstance:
     - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
         type: 3}
       propertyPath: timer
-      value: 100
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
         type: 3}
@@ -2618,6 +2618,36 @@ PrefabInstance:
       propertyPath: rightClickPrompt
       value: 
       objectReference: {fileID: 1766734276}
+    - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
+        type: 3}
+      propertyPath: levels.Array.data[1].levelLayout
+      value: 
+      objectReference: {fileID: 4404530134898980893, guid: ac2e92331d1cc1241bcdb0b12e24ec99,
+        type: 3}
+    - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
+        type: 3}
+      propertyPath: levels.Array.data[2].levelLayout
+      value: 
+      objectReference: {fileID: 2409997801525913680, guid: b4bfbb51d0845c84a88a2fe9f6039152,
+        type: 3}
+    - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
+        type: 3}
+      propertyPath: levels.Array.data[0].puzzleLayout
+      value: 
+      objectReference: {fileID: 4404530134898980893, guid: 0239c5d45a879e44ea2de3ab5d77a6d9,
+        type: 3}
+    - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
+        type: 3}
+      propertyPath: levels.Array.data[1].puzzleLayout
+      value: 
+      objectReference: {fileID: 4404530134898980893, guid: ac2e92331d1cc1241bcdb0b12e24ec99,
+        type: 3}
+    - target: {fileID: 2102175463312766189, guid: 28c788ffd11290c4eafe3d91ae2947e1,
+        type: 3}
+      propertyPath: levels.Array.data[2].puzzleLayout
+      value: 
+      objectReference: {fileID: 2409997801525913680, guid: b4bfbb51d0845c84a88a2fe9f6039152,
+        type: 3}
     - target: {fileID: 2102175463312766191, guid: 28c788ffd11290c4eafe3d91ae2947e1,
         type: 3}
       propertyPath: m_Name

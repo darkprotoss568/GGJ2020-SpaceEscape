@@ -12,9 +12,9 @@ public class GameManager : MonoBehaviour
 	[SerializeField]
 	private Transform repairObjsFrameArea;
 	[SerializeField]
-	private LevelData[] levels;
+	private PuzzleData[] levels;
 	private LevelSlotsLayout currentLevelLayout;
-	private int currentLevel = -1;
+	private int currentPuzzleIndex = -1;
     [SerializeField]
     private Text timerText;
     [SerializeField]
@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private MouseHoverPrompt rightClickPrompt;
 
+    [SerializeField]
+    private int levelNumber = 1;
     void Awake()
     {
         if (GameManager.Instance != null)
@@ -128,7 +130,8 @@ public class GameManager : MonoBehaviour
 
     public void SetMouseHoverPromptActive(bool value)
     {
-        rightClickPrompt.SetActiveState(value);
+        if (rightClickPrompt != null)
+            rightClickPrompt.SetActiveState(value);
     }
 
     private void TimerTextFlash()
@@ -147,19 +150,19 @@ public class GameManager : MonoBehaviour
     }
 	public void LoadNewPuzzle()
 	{
-		currentLevel ++;
-        if (currentLevel >= levels.Length)
+		currentPuzzleIndex ++;
+        if (currentPuzzleIndex >= levels.Length)
         {
             winScreen.SetActive(true);
             MusicGameplayManager.Instance.PlayEndGameBGM(true);
             return;
         }
-		LevelData level = levels[currentLevel];
+		PuzzleData level = levels[currentPuzzleIndex];
 		MusicGameplayManager.Instance.SetCurrentSoundTrack(level.soundTrack);
 		List<AudioClip> allAnswers = MusicGameplayManager.Instance.CreateNewAnswerSet(level.correctAnswers, level.allAnswers);
 		if (currentLevelLayout != null)
 			Destroy(currentLevelLayout.gameObject);
-		currentLevelLayout = Instantiate(level.levelLayout, answerFrameArea).GetComponent<LevelSlotsLayout>();
+		currentLevelLayout = Instantiate(level.puzzleLayout, answerFrameArea).GetComponent<LevelSlotsLayout>();
 		
 		List<Transform> repairPartsSpawnPoints = new List<Transform>(repairObjsFrameArea.gameObject.GetComponentsInChildren<Transform>());
         //Debug.Log("Count b = " + repairPartsSpawnPoints.Count);
@@ -189,7 +192,7 @@ public class GameManager : MonoBehaviour
 
         SwitchMode(false);
         MusicGameplayManager.Instance.ChangePlayButtonSpriteState(false);
-        levelText.text = "Level " + (currentLevel + 1).ToString();
+        levelText.text = "Level " + levelNumber.ToString() + " - Part " + (currentPuzzleIndex + 1).ToString();
 	}
 
     public void ModifyTimer(bool correctAnswer)
@@ -226,7 +229,7 @@ public class GameManager : MonoBehaviour
 	public void CheckAnswers()
 	{
 		List<AudioClip> answers = new List<AudioClip>();
-		for (int i = 0; i < levels[currentLevel].correctAnswers; i++)
+		for (int i = 0; i < levels[currentPuzzleIndex].correctAnswers; i++)
 		{
 			answers.Add(currentLevelLayout.Slots[i].CurrentAnswer);
 		}
@@ -242,10 +245,10 @@ public class GameManager : MonoBehaviour
 
 
 [System.Serializable]
-public struct LevelData
+public struct PuzzleData
 {
 	public AudioClip soundTrack;
-	public GameObject levelLayout;
+	public GameObject puzzleLayout;
 	public int correctAnswers;
 	public int allAnswers;
 }

@@ -31,7 +31,7 @@ public class MouseHoverPrompt : MonoBehaviour
         float newY = rectTransform.anchoredPosition.y;
 
         newX = Mathf.Clamp(newX, rectTransform.sizeDelta.x / 2, canvasScaler.referenceResolution.x - rectTransform.sizeDelta.x / 2);
-        newX = Mathf.Clamp(newY, rectTransform.sizeDelta.y / 2, canvasScaler.referenceResolution.y - rectTransform.sizeDelta.y / 2);
+        newY = Mathf.Clamp(newY, rectTransform.sizeDelta.y / 2, canvasScaler.referenceResolution.y - rectTransform.sizeDelta.y / 2);
 
         rectTransform.anchoredPosition = new Vector2(newX, newY);
     }
