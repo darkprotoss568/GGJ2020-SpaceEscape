@@ -112,7 +112,8 @@ public class MusicGameplayManager : MonoBehaviour
             resultSoundPlaying = false;
             answerCheckMode = false;
 			currNoiseIndex = 0;
-			if (levelResult)
+            ChangePlayButtonSpriteState(false);
+            if (levelResult)
 			{
 				levelResult = false;
 				

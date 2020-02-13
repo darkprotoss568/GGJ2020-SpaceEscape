@@ -131,7 +131,10 @@ public class GameManager : MonoBehaviour
     public void SetMouseHoverPromptActive(bool value)
     {
         if (rightClickPrompt != null)
-            rightClickPrompt.SetActiveState(value);
+        {
+            if (currentPuzzleIndex < 2 || !value)
+                rightClickPrompt.SetActiveState(value);
+        }
     }
 
     private void TimerTextFlash()
