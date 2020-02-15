@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -125,8 +126,16 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        HandleGameScreenChangeInput();
     }
 
+    private void HandleGameScreenChangeInput()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
 
     public void SetMouseHoverPromptActive(bool value)
     {
