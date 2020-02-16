@@ -19,12 +19,15 @@ public class MusicGameplayManager : MonoBehaviour
     private List<AudioClip> currentAnswers = new List<AudioClip>();
 	private List<bool> answerResults = new List<bool>();
 	private bool levelResult = false;
-	[SerializeField]
+    [SerializeField]
 	private AudioSource mainTrackPlayer; 
 	private bool answerCheckMode;
 	[SerializeField]
 	private AudioSource noisePlayer;
 	private int currNoiseIndex = 0;
+
+    [SerializeField]
+    private bool distortionTransition = false;
     [SerializeField]
     private AudioSource endGameBGMPlayer;
     [SerializeField]
@@ -58,7 +61,7 @@ public class MusicGameplayManager : MonoBehaviour
                         if (!answerResults[currNoiseIndex])
                         {
                             noisePlayer.PlayOneShot(currentAnswerSet[currNoiseIndex]);
-                            DistortMainTrack();
+                            //DistortMainTrack();
                             CancelInvoke("RestoreMainTrack");
                             Invoke("RestoreMainTrack", currentAnswerSet[currNoiseIndex].length);
                         }
@@ -74,7 +77,7 @@ public class MusicGameplayManager : MonoBehaviour
                     else
                     {
                         noisePlayer.PlayOneShot(currentAnswerSet[currNoiseIndex]);
-                        DistortMainTrack();
+                        //DistortMainTrack();
                         CancelInvoke("RestoreMainTrack");
                         Invoke("RestoreMainTrack", currentAnswerSet[currNoiseIndex].length);
 
@@ -147,18 +150,24 @@ public class MusicGameplayManager : MonoBehaviour
 
         while (mainTrackPlayer.pitch != target)
         {
-            mainTrackPlayer.pitch += rate * Time.deltaTime;
-            float min = target;
-            float max = target;
-            if (rate > 0)
+            if (distortionTransition)
             {
-                min = origPitch;
+                mainTrackPlayer.pitch += rate * Time.deltaTime;
+                float min = target;
+                float max = target;
+                if (rate > 0)
+                {
+                    min = origPitch;
+                }
+                else
+                {
+                    max = origPitch;
+                }
+                mainTrackPlayer.pitch = Mathf.Clamp(mainTrackPlayer.pitch, min, max);
             }
             else
-            {
-                max = origPitch;
-            }
-            mainTrackPlayer.pitch = Mathf.Clamp(mainTrackPlayer.pitch, min, max);
+                mainTrackPlayer.pitch = target;
+
             yield return null;
         }
 
