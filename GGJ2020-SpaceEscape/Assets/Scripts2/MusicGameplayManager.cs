@@ -183,6 +183,7 @@ public class MusicGameplayManager : MonoBehaviour
         List<AudioClip> testList = new List<AudioClip>(noises);
         currentAnswerSet.Clear();
 		currentAnswerTimeSet.Clear();
+
         for (int i = 0; i < correctAnswers; i++)
         {
             AudioClip answer = testList[UnityEngine.Random.Range(0, testList.Count)];
@@ -203,10 +204,12 @@ public class MusicGameplayManager : MonoBehaviour
         {
             Swap(result, 0, UnityEngine.Random.Range(0, i));
         }
-		
-		for (int i = 0; i < currentAnswerSet.Count; i++)
+
+        float timePeriod = currentTrack.length;
+        float div = timePeriod / currentAnswerSet.Count;
+        for (int i = 0; i < currentAnswerSet.Count; i++)
 		{
-			currentAnswerTimeSet.Add(UnityEngine.Random.Range(0, currentTrack.length - 5));
+			currentAnswerTimeSet.Add(UnityEngine.Random.Range(i * div, div*(i+1) - currentAnswerSet[i].length));
 		}
 		
 		currentAnswerTimeSet.Sort(SortByFloatAscending);
