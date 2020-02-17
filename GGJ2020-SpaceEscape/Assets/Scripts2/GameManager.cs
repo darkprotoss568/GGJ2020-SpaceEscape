@@ -137,6 +137,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
+    }
     public void SetMouseHoverPromptActive(bool value)
     {
         if (rightClickPrompt != null)
