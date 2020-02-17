@@ -19,6 +19,7 @@ public class ItemDrop : MonoBehaviour, IDropHandler
             objectDropped = eventData.pointerDrag;
             GameManager.Instance.SwitchMode(true);
             MusicGameplayManager.Instance.PlayRepairObjectInputSound();
+            Debug.Log("Dropped");
         }
     }
 
@@ -30,19 +31,16 @@ public class ItemDrop : MonoBehaviour, IDropHandler
     void OnTriggerEnter2D(Collider2D collision)
     {
         
-
     }
 
 
     public void OnTriggerStay2D(Collider2D collision)
     {
-       
         if (collision.gameObject.CompareTag("Objects") && ImEmpty && isMouseReleased)
         {
             objectDropped = collision.gameObject;
             objectDropped.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
             ImEmpty = false;
-
         }
 
         if (collision.gameObject == objectDropped && isMouseReleased)
@@ -60,6 +58,7 @@ public class ItemDrop : MonoBehaviour, IDropHandler
             ImEmpty = true;
             gameObject.GetComponent<RepairSlots>().CurrentAnswer = null;
 
+            Debug.Log("Released 1");
             GameManager.Instance.SwitchMode(false);
         }
     }
