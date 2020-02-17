@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
-        if (!MusicGameplayManager.Instance.IsPlayingMusic() && currentTimer > 0)
+        if (!MusicGameplayManager.Instance.IsPlayingMusic() && currentTimer > 0 && !gameOverScreen.activeInHierarchy && !winScreen.activeInHierarchy)
         {
             //Debug.Log(currentTimer);
             currentTimer = Mathf.Clamp(currentTimer - Time.deltaTime, 0, timer);

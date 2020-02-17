@@ -60,10 +60,11 @@ public class MusicGameplayManager : MonoBehaviour
                     {
                         if (!answerResults[currNoiseIndex])
                         {
-                            noisePlayer.PlayOneShot(currentAnswerSet[currNoiseIndex]);
+                            //noisePlayer.PlayOneShot(currentAnswerSet[currNoiseIndex]);
+                            PlayNoise(currentAnswerSet[currNoiseIndex]);
                             //DistortMainTrack();
                             CancelInvoke("RestoreMainTrack");
-                            Invoke("RestoreMainTrack", currentAnswerSet[currNoiseIndex].length);
+                            //Invoke("RestoreMainTrack", currentAnswerSet[currNoiseIndex].length);
                         }
                         else
                         {
@@ -76,10 +77,11 @@ public class MusicGameplayManager : MonoBehaviour
                     }
                     else
                     {
-                        noisePlayer.PlayOneShot(currentAnswerSet[currNoiseIndex]);
+                        //noisePlayer.PlayOneShot(currentAnswerSet[currNoiseIndex]);
+                        PlayNoise(currentAnswerSet[currNoiseIndex]);
                         //DistortMainTrack();
                         CancelInvoke("RestoreMainTrack");
-                        Invoke("RestoreMainTrack", currentAnswerSet[currNoiseIndex].length);
+                        //Invoke("RestoreMainTrack", currentAnswerSet[currNoiseIndex].length);
 
                     }
                     currNoiseIndex++;
@@ -135,6 +137,7 @@ public class MusicGameplayManager : MonoBehaviour
         levelResult = false;
         ChangePlayButtonSpriteState(false);
         mainTrackPlayer.Stop();
+        noisePlayer.Stop();
     }
 
     public void DistortMainTrack()
@@ -199,7 +202,7 @@ public class MusicGameplayManager : MonoBehaviour
             result.Add(answer);
             testList.Remove(answer);
         }
-		
+
         for (var i = result.Count; i > 0; i--)
         {
             Swap(result, 0, UnityEngine.Random.Range(0, i));
@@ -271,7 +274,7 @@ public class MusicGameplayManager : MonoBehaviour
         {
             mainTrackPlayer.Play();
         }
-
+        noisePlayer.Stop();
         ChangePlayButtonSpriteState(mainTrackPlayer.isPlaying);
     }
 	
@@ -335,7 +338,7 @@ public class MusicGameplayManager : MonoBehaviour
 		
 	}
 
-    public void playTheNoise(AudioClip clip)
+    public void PlayNoise(AudioClip clip)
     {
         noisePlayer.clip = clip;
         noisePlayer.Play();
