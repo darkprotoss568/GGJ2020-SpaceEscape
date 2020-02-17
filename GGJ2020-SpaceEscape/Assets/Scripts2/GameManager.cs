@@ -135,6 +135,11 @@ public class GameManager : MonoBehaviour
         {
             Application.Quit();
         }
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+                BackToMainMenu();
+        }
     }
 
     public void BackToMainMenu()
