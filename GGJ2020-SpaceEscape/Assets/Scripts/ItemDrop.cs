@@ -19,7 +19,6 @@ public class ItemDrop : MonoBehaviour, IDropHandler
             objectDropped = eventData.pointerDrag;
             GameManager.Instance.SwitchMode(true);
             MusicGameplayManager.Instance.PlayRepairObjectInputSound();
-            Debug.Log("Dropped");
         }
     }
 
@@ -57,8 +56,7 @@ public class ItemDrop : MonoBehaviour, IDropHandler
         {
             ImEmpty = true;
             gameObject.GetComponent<RepairSlots>().CurrentAnswer = null;
-
-            Debug.Log("Released 1");
+            
             GameManager.Instance.SwitchMode(false);
         }
     }
