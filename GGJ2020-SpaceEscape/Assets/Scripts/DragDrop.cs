@@ -9,8 +9,9 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     private RectTransform rectTransform;
     private Vector3 startingPos;
     private CanvasGroup canvasGroup;
-    private bool frameIsEmpty = false;
+    private bool frameIsUsable = false;
     private bool ImNotColliding = true;
+    private GameObject previousFrame;
 
     private void Awake()
     {
@@ -54,7 +55,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     {
         canvasGroup.blocksRaycasts = true;
 
-        if (!frameIsEmpty) {
+        if (!frameIsUsable) {
             rectTransform.anchoredPosition = startingPos;
         }
 
@@ -73,14 +74,15 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     {
         if (collision.gameObject.CompareTag("Frame"))
         {
-            frameIsEmpty = collision.gameObject.GetComponent<ItemDrop>().getIsEmpty();
-            ImNotColliding = !collision.gameObject.GetComponent<ItemDrop>().getIsEmpty();
+            frameIsUsable = collision.gameObject.GetComponent<ItemDrop>().getIsEmpty();
+            ImNotColliding = !frameIsUsable;
+            previousFrame = collision.gameObject;
         }
     }
 
     void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Frame"))
+        if (collision.gameObject.CompareTag("Frame") && collision.gameObject == previousFrame)
         {
             ImNotColliding = true;
         }
